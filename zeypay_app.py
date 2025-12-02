@@ -2,6 +2,7 @@ import streamlit as st
 import random
 import string
 from datetime import datetime
+from PIL import Image
 
 # --------- CONFIG DE LA PAGE ---------
 st.set_page_config(
@@ -9,6 +10,10 @@ st.set_page_config(
     page_icon="🎁",
     layout="centered",
 )
+
+# --- LOGO ZEYPAY ---
+logo = Image.open("ChatGPT_Image_2_déc._2025__23_32_56-removebg-preview.png")
+st.image(logo, width=180)
 
 st.title("🎁 ZeyPay – Crypto Gift Cards (Prototype)")
 st.caption("Fintech & DeFi – Streamlit prototype demo")
@@ -212,4 +217,5 @@ with tab_admin:
         st.info("No gift cards created yet in this session.")
     else:
         st.write("Current in-memory gift cards:")
+
         st.json(st.session_state.gift_cards)
